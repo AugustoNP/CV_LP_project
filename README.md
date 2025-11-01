@@ -1,4 +1,4 @@
-# CV_LP_project
+# CV_LP_project 
 
 This repository contains a series of computer vision scripts designed to **count people in real-time** across one or multiple cameras. The project evolved from basic frame difference detection to YOLO-based tracking, timer-enabled snapshots, Flask video streaming, and finally a **multi-camera GUI people counter**.  
 
@@ -15,7 +15,7 @@ This repository contains a series of computer vision scripts designed to **count
 
 ---
 
-## 1. Simple Difference-Based Detection
+## Simple Difference-Based Detection
 
 ### Overview
 This is the **first iteration** of the people counting system. It detects motion by calculating the **difference between consecutive frames**, followed by thresholding and contour detection. People are counted when their movement crosses a predefined reference line.
@@ -62,7 +62,7 @@ for c in contours:
 
 ---
 
-## 2. YOLO Single Camera People Counter
+## YOLO Single Camera People Counter
 
 ### Overview
 The next step introduces **YOLOv8 nano**, enabling robust people detection and tracking in a single camera feed. Persistent IDs allow accurate counting of entries and exits using centroid tracking.
@@ -104,7 +104,7 @@ if prev_x < line_x and curr_x >= line_x:
 
 ---
 
-## 3. YOLO Timer-Based People Counter
+## YOLO Timer-Based People Counter
 
 ### Overview
 This variation adds **timers for each detected object**. When a person is detected, a timer starts. After the timer expires, a snapshot of the person is automatically saved. Useful for **monitoring areas or generating evidence for people entering/exiting**.
@@ -138,7 +138,7 @@ def countdown(seconds, track_id):
 
 ---
 
-## 4. Flask Video Stream
+## Flask Video Stream
 
 ### Overview
 This script streams video from a **USB camera or similar device** using Flask. It enables remote monitoring via a web browser, which is particularly useful for **Raspberry Pi deployments** or lightweight setups.
@@ -176,7 +176,7 @@ def video_feed():
 
 ---
 
-## 5. Multi-Camera GUI People Counter
+## Multi-Camera GUI People Counter
 
 ### Overview
 This is the **crowning jewel** of the project. It integrates all previous techniques into a **user-friendly multi-camera GUI**, combining YOLOv8 detection, persistent centroid tracking, threaded updates, and live entry/exit counters.
